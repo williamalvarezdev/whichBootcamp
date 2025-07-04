@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --color-bg: #111;
+  --color-text: #0f0;
+  --color-border: #0f0;
+  --font-family-pixel: 'Press Start 2P', cursive, monospace;
+  --font-size-mobile: 10px;
+  --font-size-desktop: 14px;
+  --dialog-padding: 12px;
+  --dialog-border-radius: 8px;
+  --dialog-border-width: 4px;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family-pixel);
+  font-size: var(--font-size-mobile);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+  user-select: none;
+}
+
+@media (min-width: 600px) {
+  body {
+    font-size: var(--font-size-desktop);
+  }
+}
