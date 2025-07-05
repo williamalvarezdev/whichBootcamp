@@ -1,4 +1,4 @@
-export default function DialogBox({ speaker, text }) {
+export function DialogBox({ speaker, text }) {
     return (
       <div style={{ width: "90%", maxWidth: 400, margin: "20px auto" }}>
         <div style={{

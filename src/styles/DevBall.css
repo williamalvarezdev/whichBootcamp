@@ -1,0 +1,63 @@
+/* DevBall.css */
+
+.devball-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-text);
+    font-family: var(--font-family-pixel);
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .mentor-text {
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    text-shadow: 2px 2px 0 #000;
+  }
+  
+  .ball {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #003300;
+    border: 4px solid #0f0;
+    border-radius: 50%;
+    box-shadow: inset 4px 4px 0 #006600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+  }
+  
+  .ball:hover {
+    transform: scale(1.05);
+  }
+  
+  .ball-number {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: black;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .ball-response {
+    position: absolute;
+    margin-top: 3rem;
+    width: 100%;
+    color: #0f0;
+    font-size: 0.7rem;
+    text-shadow: 1px 1px 0 #000;
+  }
+  
