@@ -1,29 +1,55 @@
-export function DialogBox({ speaker, text }) {
-    return (
-      <div style={{ width: "90%", maxWidth: 400, margin: "20px auto" }}>
-        <div style={{
-          fontSize: "0.7em",
-          marginBottom: 4,
-          textShadow:
-            "2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000"
-        }}>
-          {speaker}
-        </div>
-        <div style={{
-          backgroundColor: "#003300",
-          border: "4px solid #0f0",
-          borderRadius: 8,
-          padding: 12,
-          boxShadow: "inset 2px 2px 0 #006600",
-          minHeight: 80,
-          maxWidth: 400,
-          margin: "0 auto",
-          textShadow:
-            "1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000"
-        }}>
-          <p>{text}</p>
-        </div>
-      </div>
-    );
-  }
-  
+import { useState, useEffect } from "react";
+import { Canvas, useThree } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { Ball } from "./Ball";
+import gsap from "gsap";
+
+function ResponsiveCameraWrapper({ children }) {
+  const { viewport, camera } = useThree();
+
+  useEffect(() => {
+    camera.position.z = viewport.width < 6 ? 5.5 : viewport.width < 10 ? 4.5 : 3.5;
+  }, [viewport.width, camera]);
+
+  return children;
+}
+
+export function DialogBox({ updateDialog, selectedBootcamp }) {
+  const [isShaking, setIsShaking] = useState(false);
+  const [respuesta, setRespuesta] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleAsk = async () => {
+    if (loading) return;
+
+    setIsShaking(true);
+    setLoading(true);
+
+    gsap.delayedCall(2, () => {
+      setIsShaking(false);
+      const randomRespuesta = "This is your Bootcamp!";
+      setRespuesta(randomRespuesta);
+      if (updateDialog) updateDialog(randomRespuesta);
+      setLoading(false);
+    });
+  };
+
+  return (
+    <div className="dialog-container" style={{ textAlign: "center" }}>
+      <Canvas shadows camera={{ position: [0, 0, 5], fov: 50 }}>
+        <ResponsiveCameraWrapper>
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[5, 5, 5]} intensity={1} />
+          <OrbitControls enableZoom={false}/>
+          <Ball isShaking={isShaking} />
+        </ResponsiveCameraWrapper>
+      </Canvas>
+
+      <button onClick={handleAsk} disabled={loading} style={{ marginTop: "1rem" }}>
+        {loading ? "Let me check with my mates..." : "Ask a question. I am ready!"}
+      </button>
+
+      {respuesta && <p style={{ marginTop: "1rem" }}>{respuesta}</p>}
+    </div>
+  );
+}

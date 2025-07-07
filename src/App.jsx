@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { DialogBox } from "./components/DialogBox";
-import { DevBall } from "./components/DevBall";
-import { Navbar } from "./components/Navbar";
+import { DialogBox } from "./components/DialogBox"; 
+import { Navbar } from "./components/Navbar";      
 
 export function App() {
   const [dialog, setDialog] = useState({
@@ -41,8 +40,7 @@ export function App() {
         padding: 16,
         paddingTop: 80, 
       }}>
-
-        <DevBall updateDialog={setDialog} selectedBootcamp={selectedBootcamp} />
+        <DialogBox updateDialog={setDialog} selectedBootcamp={selectedBootcamp} />
       </div>
     </>
   );
