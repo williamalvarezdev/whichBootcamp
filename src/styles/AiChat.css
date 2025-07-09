@@ -1,0 +1,41 @@
+.aichat-container{
+    margin: 10%;
+}
+
+.aichat-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.aichat-input {
+  flex-grow: 1;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family-pixel);
+  font-size: var(--font-size-mobile);
+  background-color: var(--color-bg);
+}
+
+.aichat-button {
+    background-color: var(--color-text);
+    color: #003300;
+    border: none;
+    padding: .4rem .5rem;
+    cursor: pointer;
+    font-family: var(--font-family-pixel);
+    font-weight: bold;
+    font-size: .8rem;
+    border-radius: 4px;
+    box-shadow:
+      2px 2px 0 #000,
+      -2px -2px 0 #000;
+    transition: background-color 0.2s ease;
+}
+
+.aichat-button:disabled {
+  cursor: not-allowed;
+}

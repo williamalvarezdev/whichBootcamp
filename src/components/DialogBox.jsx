@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Ball } from "./Ball";
+import { Ollama } from 'ollama'
 import gsap from "gsap";
+
+
+const ollama = new Ollama({ host: 'https://ai.williamalvarez.dev/' })
 
 function ResponsiveCameraWrapper({ children }) {
   const { viewport, camera } = useThree();
@@ -20,31 +24,42 @@ export function DialogBox({ updateDialog, selectedBootcamp }) {
   const [loading, setLoading] = useState(false);
 
   const handleAsk = async () => {
-    if (loading) return;
 
-    setIsShaking(true);
-    setLoading(true);
+    const message = { role: 'user', content: 'Why is the sky blue?' }
+const response = await ollama.chat({
+  model: 'llama3.2:1b',
+  messages: [message],
+  stream: true,
+})
+for await (const part of response) {
+  process.stdout.write(part.message.content)
+}
+    // if (loading) return;
 
-    gsap.delayedCall(2, () => {
-      setIsShaking(false);
-      const randomRespuesta = "This is your Bootcamp!";
-      setRespuesta(randomRespuesta);
-      if (updateDialog) updateDialog(randomRespuesta);
-      setLoading(false);
-    });
+    // setIsShaking(true);
+    // setLoading(true);
+
+    // gsap.delayedCall(2, () => {
+    //   setIsShaking(false);
+    //   const randomRespuesta = "This is your Bootcamp!";
+    //   setRespuesta(randomRespuesta);
+    //   if (updateDialog) updateDialog(randomRespuesta);
+    //   setLoading(false);
+    // });
   };
 
   return (
     <div className="dialog-container" style={{ textAlign: "center" }}>
-      <Canvas shadows camera={{ position: [0, 0, 5], fov: 50 }}>
+      {/* <Canvas shadows camera={{ position: [0, 0, 5], fov: 50 }}>
         <ResponsiveCameraWrapper>
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} intensity={1} />
           <OrbitControls enableZoom={false}/>
-          <Ball isShaking={isShaking} />
+          <Ball isShaking={isShaking} /> 
         </ResponsiveCameraWrapper>
-      </Canvas>
-
+      </Canvas> */}
+      {/* Eva is in charge of the ball she will work on that. Will comment out the above later on */}
+      
       <button onClick={handleAsk} disabled={loading} style={{ marginTop: "1rem" }}>
         {loading ? "Let me check with my mates..." : "Ask a question. I am ready!"}
       </button>

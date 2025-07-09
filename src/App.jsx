@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DialogBox } from "./components/DialogBox"; 
 import { Navbar } from "./components/Navbar";      
+import { AIChat } from "./components/aiChat";
 
 export function App() {
   const [dialog, setDialog] = useState({
@@ -29,7 +30,7 @@ export function App() {
   return (
     <>
       <Navbar bootcamps={bootcamps} onSelect={handleBootcampSelect} />
-
+      <AIChat />
       <div style={{
         backgroundColor: "#111",
         height: "100vh",
