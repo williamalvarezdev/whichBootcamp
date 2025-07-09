@@ -34,31 +34,30 @@ const response = await ollama.chat({
 for await (const part of response) {
   process.stdout.write(part.message.content)
 }
-    // if (loading) return;
+    if (loading) return;
 
-    // setIsShaking(true);
-    // setLoading(true);
+    setIsShaking(true);
+    setLoading(true);
 
-    // gsap.delayedCall(2, () => {
-    //   setIsShaking(false);
-    //   const randomRespuesta = "This is your Bootcamp!";
-    //   setRespuesta(randomRespuesta);
-    //   if (updateDialog) updateDialog(randomRespuesta);
-    //   setLoading(false);
-    // });
+    gsap.delayedCall(2, () => {
+      setIsShaking(false);
+      const randomRespuesta = "This is your Bootcamp!";
+      setRespuesta(randomRespuesta);
+      if (updateDialog) updateDialog(randomRespuesta);
+      setLoading(false);
+    });
   };
 
   return (
     <div className="dialog-container" style={{ textAlign: "center" }}>
-      {/* <Canvas shadows camera={{ position: [0, 0, 5], fov: 50 }}>
+      <Canvas shadows camera={{ position: [0, 0, 5], fov: 50 }}>
         <ResponsiveCameraWrapper>
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} intensity={1} />
           <OrbitControls enableZoom={false}/>
           <Ball isShaking={isShaking} /> 
         </ResponsiveCameraWrapper>
-      </Canvas> */}
-      {/* Eva is in charge of the ball she will work on that. Will comment out the above later on */}
+      </Canvas> 
       
       <button onClick={handleAsk} disabled={loading} style={{ marginTop: "1rem" }}>
         {loading ? "Let me check with my mates..." : "Ask a question. I am ready!"}
