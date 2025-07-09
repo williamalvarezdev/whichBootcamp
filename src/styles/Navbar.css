@@ -3,7 +3,7 @@
     background-color: #003300;
     color: var(--color-text);
     font-family: var(--font-family-pixel);
-    padding: 1rem 1rem;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;

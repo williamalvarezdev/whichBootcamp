@@ -41,7 +41,7 @@ export function App() {
         padding: 16,
         paddingTop: 80, 
       }}>
-        {/* <DialogBox updateDialog={setDialog} selectedBootcamp={selectedBootcamp} /> */}
+        <DialogBox updateDialog={setDialog} selectedBootcamp={selectedBootcamp} />
       </div>
     </>
   );
