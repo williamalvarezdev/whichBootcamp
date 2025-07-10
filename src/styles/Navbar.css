@@ -55,7 +55,8 @@
   .navbar-dropdown {
     position: absolute;
     right: 0;
-    margin-top: 0.3rem;
+    margin-top: .3rem;
+    margin-right: 2.5rem;
     background-color: rgba(152, 145, 145, 0.52);
     border: 2px solid var(--color-text);
     border-radius: 6px;

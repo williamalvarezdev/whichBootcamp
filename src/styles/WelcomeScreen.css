@@ -68,9 +68,10 @@ body {
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  background-color: #cc4b44;
+  background: linear-gradient(to bottom, #cc4b44 50%, #ffffff 50%);
   transform: translate(-50%, -50%);
   overflow: hidden;
+  border: 5px solid #000; /* borde exterior */
 }
 
 .poke-ball::before,
@@ -87,5 +88,16 @@ body {
   width: 45px;
   border-radius: 50%;
   background-color: #fff;
+  border: 5px solid #000;
   transform: translate(-50%, -50%);
+}
+
+.poke-ball::after {
+  z-index: 1;
+  top: 50%;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background-color: #000;
+  transform: translateY(-50%);
 }
