@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 :root {
-  --color-bg: #111;
-  --color-text: #0f0;
-  --color-border: #0f0;
+  --color-bg: rgb(17, 17, 17);
+  --color-text:rgb(204, 75, 68);
+  --color-border: rgb(107, 20, 16);
   --font-family-pixel: 'Press Start 2P', cursive, monospace;
   --font-size-mobile: 10px;
   --font-size-desktop: 14px;

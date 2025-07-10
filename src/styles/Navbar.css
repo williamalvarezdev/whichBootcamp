@@ -1,6 +1,6 @@
 .navbar {
     width: 100%;
-    background-color: #003300;
+    background-color: rgb(204, 75, 68);
     color: var(--color-text);
     font-family: var(--font-family-pixel);
     padding: 1rem 1rem;
@@ -47,7 +47,7 @@
   
   .navbar-button:hover,
   .navbar-button:focus {
-    background-color: #0a0;
+    background-color: rgb(204, 75, 68);
     outline: none;
   }
   

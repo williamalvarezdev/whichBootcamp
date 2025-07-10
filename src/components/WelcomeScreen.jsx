@@ -1,4 +1,3 @@
-// components/WelcomeScreen.jsx
 import { useState } from "react";
 import "../styles/WelcomeScreen.css";
 
