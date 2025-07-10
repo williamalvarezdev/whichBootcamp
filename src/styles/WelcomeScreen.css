@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+  background-color: #f65a52;
+  font-family: "VT323", monospace;
+  font-size: 16px;
+  color: #333;
+}
+
+.poke-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #cc4b44;
+  margin-top: 50px;
+}
+
+.button {
+  padding: 0.5em 1.5em;
+  border-radius: 1rem;
+  border: none;
+  font-size: 1.5rem;
+  background-color: #cc4b44;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.35s;
+  margin-bottom: 0.5rem;
+}
+
+.button:hover {
+  background-color: #000;
+  color: #f65a52;
+}
+
+.poke-intro-trainer {
+  position: relative;
+  margin-bottom: 1rem;
+  height: 200px;
+  width: 200px;
+}
+
+.poke-trainer-img {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 200px;
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+}
+
+.poke-trainer-img.active {
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+.poke-trainer-img-classic {
+  bottom: 5px;
+  height: 180px;
+  image-rendering: pixelated;
+  transform: translateX(-80%);
+}
+
+.poke-trainer-img-master {
+  transform: translateX(-20%);
+}
+
+.poke-ball {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: #cc4b44;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.poke-ball::before,
+.poke-ball::after {
+  content: '';
+  position: absolute;
+}
+
+.poke-ball::before {
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+}
