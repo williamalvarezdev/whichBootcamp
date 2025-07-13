@@ -23,6 +23,16 @@ body {
   user-select: none;
 }
 
+.main-content {
+  background-color: #111;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 @media (min-width: 600px) {
   body {
     font-size: var(--font-size-desktop);

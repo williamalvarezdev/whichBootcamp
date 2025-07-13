@@ -27,21 +27,15 @@ export function App() {
 
   return (
     <>
-      <Navbar bootcamps={bootcamps} onSelect={handleBootcampSelect} />
-      <div
-        style={{
-          backgroundColor: "#111",
-          height: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: 16,
-          paddingTop: 80,
-        }}
-      >
+      <Navbar 
+        bootcamps={bootcamps} 
+        onSelect={handleBootcampSelect}
+        onHomeClick={() => setSelectedRole(null)} 
+      />
+      <div className="main-content">
         <DialogBox selectedBootcamp={selectedBootcamp} />
       </div>
     </>
-  );
+  );  
+  
 }
