@@ -1,12 +1,21 @@
-import { useState } from "react"; 
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 
 export function Navbar({ bootcamps, onSelect, onHomeClick }) {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleTitleClick = () => {
-    onSelect(bootcamps[0]);  
-    onHomeClick();             
+    if (onSelect) onSelect(bootcamps[0].name);  
+    onHomeClick(); 
+    navigate("/"); 
+  };
+
+  const handleBootcampClick = (bootcamp) => {
+    if (onSelect) onSelect(bootcamp.name);
+    navigate(`/bootcamp/${bootcamp.path}`);
+    setOpen(false);
   };
 
   return (
@@ -33,16 +42,13 @@ export function Navbar({ bootcamps, onSelect, onHomeClick }) {
           <ul className="navbar-dropdown" role="menu">
             {bootcamps.map((bc, i) => (
               <li 
-                key={i} 
-                onClick={() => {
-                  onSelect(bc);
-                  setOpen(false);
-                }}
+                key={i}
+                onClick={() => handleBootcampClick(bc)}
                 tabIndex={0}
                 role="menuitem"
-                onKeyDown={(e) => e.key === "Enter" && onSelect(bc)}
+                onKeyDown={(e) => e.key === "Enter" && handleBootcampClick(bc)}
               >
-                {bc}
+                {bc.name}
               </li>
             ))}
           </ul>
